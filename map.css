@@ -1,0 +1,71 @@
+:root {
+    --color-departures: steelblue;
+    --color-arrivals: darkorange;
+}
+
+html,
+body {
+    margin: 0;
+    padding: 5;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#map {
+    width: 100%;
+    height: 100%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+#map svg {
+
+    position: absolute;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+    pointer-events: none
+}
+
+circle {
+    --color: color-mix(in oklch,
+            var(--color-departures) calc(100% * var(--departure-ratio)),
+            var(--color-arrivals));
+    fill: var(--color);
+    stroke: white;
+    stroke-width: 1px;
+    pointer-events: all !important;
+}
+
+circle,
+.legend>div {
+    --color: color-mix(in oklch,
+            var(--color-departures) calc(100% * var(--departure-ratio)),
+            var(--color-arrivals));
+}
+
+.legend {
+    margin-top: 2%;
+    display: flex;
+    flex-direction: row;
+    gap: 1em;
+    background: white;
+    padding: 1em;
+    border-radius: 4px;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
+    height: fit-content;
+    min-width: 300px;
+}
+
+.legend>div {
+    flex: 1;
+    padding: 0.5em 1em;
+    border-radius: 4px;
+    background: var(--color);
+    color: white;
+    font-size: 0.9em;
+    text-align: center;
+}

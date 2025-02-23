@@ -1,0 +1,19 @@
+header {
+    display: flex;
+    gap: 1em;
+    align-items: baseline;
+}
+
+header label {
+    margin-left: auto;
+}
+
+#selected-time,
+#any-time {
+    display: block;
+}
+
+#any-time {
+    color: #666;
+    font-style: italic;
+}
